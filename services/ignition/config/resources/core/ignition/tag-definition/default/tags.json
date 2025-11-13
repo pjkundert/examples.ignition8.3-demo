@@ -1,0 +1,10 @@
+[
+  {
+    "valueSource": "memory",
+    "historyProvider": "BetterTest",
+    "name": "Test",
+    "historyEnabled": true,
+    "defaultValue": 1,
+    "tagType": "AtomicTag"
+  }
+]

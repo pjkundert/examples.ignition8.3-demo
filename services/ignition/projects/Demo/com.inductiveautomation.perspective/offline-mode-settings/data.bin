@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "tokenExpiryDays": 7,
+  "alwaysAskIdP": false,
+  "permissions": {
+    "type": "AllOf",
+    "securityLevels": []
+  },
+  "themes": [],
+  "languages": []
+}
