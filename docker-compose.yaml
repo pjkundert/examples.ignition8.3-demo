@@ -40,7 +40,16 @@ services:
     environment:
       POSTGRES_PASSWORD: P@ssword1!
       POSTGRES_USER: postgres
-    
+
+  database-prod:
+    image: postgres
+    hostname: postgres-prod
+    volumes:
+      - ./services/postgres/init-sql:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_PASSWORD: P@ssword1!
+      POSTGRES_USER: postgres
+
   liquibase:
     image: liquibase/liquibase
     depends_on:
