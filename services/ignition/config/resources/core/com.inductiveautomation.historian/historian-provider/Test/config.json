@@ -1,8 +1,0 @@
-{
-  "profile": {
-    "type": "WideDbHistorian"
-  },
-  "settings": {
-    "datasource": "postgres"
-  }
-}
