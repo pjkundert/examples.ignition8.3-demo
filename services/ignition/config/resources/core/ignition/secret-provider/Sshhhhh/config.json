@@ -1,0 +1,19 @@
+{
+  "profile": {
+    "type": "internal"
+  },
+  "settings": {
+    "secrets": {
+      "example_secret": {
+        "ciphertext": {
+          "ciphertext": "dB1td7jzFuKwCKsoHA",
+          "encrypted_key": "RcO3UGwChVOZJS_ZEq0c-lDUkTsbusKmwUl4YJ0j4aeZaB4fiLHasQ",
+          "iv": "u5tpvqDNW-O6f2e9",
+          "protected": "eyJhbGciOiJBMjU2S1ciLCJlbmMiOiJBMjU2R0NNIiwiaWF0IjoxNzYzMzE5NTEyLCJ6aXAiOiJERUYifQ",
+          "tag": "KqyVcSxHJ8s59-XygchpGg"
+        },
+        "description": ""
+      }
+    }
+  }
+}

@@ -1,8 +1,7 @@
 {
   "pages": {
     "/": {
-      "title": "",
-      "viewPath": "FormComponentDemo"
+      "viewPath": "FormExample"
     }
   },
   "sharedDocks": {
