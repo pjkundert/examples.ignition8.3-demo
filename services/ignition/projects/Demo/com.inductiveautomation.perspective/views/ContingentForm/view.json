@@ -1,12 +1,7 @@
 {
   "custom": {},
   "params": {},
-  "props": {
-    "defaultSize": {
-      "height": 500,
-      "width": 600
-    }
-  },
+  "props": {},
   "root": {
     "children": [
       {
@@ -4129,6 +4124,13 @@
                 "visible": true
               }
             ]
+          },
+          "data": {
+            "Trainings": [
+              false,
+              false
+            ],
+            "toggle": false
           },
           "name": "Example",
           "validation": {

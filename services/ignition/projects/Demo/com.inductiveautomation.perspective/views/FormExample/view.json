@@ -1,12 +1,7 @@
 {
   "custom": {},
   "params": {},
-  "props": {
-    "defaultSize": {
-      "height": 536,
-      "width": 585
-    }
-  },
+  "props": {},
   "root": {
     "children": [
       {
