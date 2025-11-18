@@ -3,7 +3,7 @@
     "valueSource": "memory",
     "historyProvider": "BetterTest",
     "name": "Test",
-    "historyEnabled": true,
+    "historyEnabled": false,
     "defaultValue": 1,
     "tagType": "AtomicTag"
   }

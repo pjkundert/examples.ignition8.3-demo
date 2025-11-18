@@ -19,7 +19,8 @@ services:
         com.inductiveautomation.perspective,
         com.inductiveautomation.jdbc.postgresql,
         com.inductiveautomation.webdev,
-        com.inductiveautomation.opcua
+        com.inductiveautomation.opcua,
+        com.inductiveautomation.sqlbridge
     command: >
       -n ignition83
       --
