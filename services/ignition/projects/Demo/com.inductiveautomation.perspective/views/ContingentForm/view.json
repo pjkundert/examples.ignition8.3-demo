@@ -3,8 +3,8 @@
   "params": {},
   "props": {
     "defaultSize": {
-      "height": 536,
-      "width": 585
+      "height": 500,
+      "width": 600
     }
   },
   "root": {
@@ -19,7 +19,11 @@
         "props": {
           "actions": {
             "submit": {
-              "disabled": true
+              "autoDisable": false,
+              "awaitResponse": true,
+              "fireSubmissionEvent": true,
+              "submissionHandler": "handleForm",
+              "text": "Submit Changes"
             }
           },
           "columns": {
@@ -2945,6 +2949,1173 @@
                           "visible": true
                         }
                       ]
+                    },
+                    {
+                      "enabled": false,
+                      "enabledWhen": {
+                        "id": "toggle",
+                        "value": true
+                      },
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": true,
+                      "visibleWhen": {},
+                      "widgets": [
+                        {
+                          "checkbox": {
+                            "align": "center",
+                            "checkedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box",
+                              "style": {}
+                            },
+                            "indeterminateIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/indeterminate_check_box",
+                              "style": {}
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "New Employee Training",
+                                "triState": false,
+                                "value": ""
+                              },
+                              {
+                                "text": "Quarterly Continuing Education",
+                                "triState": false,
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "uncheckedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box_outline_blank",
+                              "style": {}
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "ll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-time-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "lll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "dropdown": {
+                            "maxMenuHeight": 350,
+                            "minMenuHeight": 150,
+                            "multiSelect": false,
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [],
+                            "placeholder": {
+                              "color": "",
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {
+                                  "height": "16px",
+                                  "width": "16px"
+                                }
+                              },
+                              "text": "Select..."
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textAlign": "left",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrapMultiSelectValues": true
+                          },
+                          "email": {
+                            "autoComplete": "off",
+                            "multiple": false,
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "enabled": true,
+                          "id": "Trainings",
+                          "info": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Choose which traning sessions have been initiated.",
+                            "tooltip": {
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "location": "above",
+                              "maxWidth": 360,
+                              "pixelOffset": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "style": {
+                                "classes": ""
+                              },
+                              "tail": true
+                            },
+                            "type": "caption"
+                          },
+                          "label": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Tranings"
+                          },
+                          "layout": "column",
+                          "number": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "max": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "min": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "step": {
+                                  "enabled": false,
+                                  "value": "any"
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "password": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "radio": {
+                            "align": "center",
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": "value"
+                              }
+                            ],
+                            "selectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_checked",
+                              "style": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "unselectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_unchecked",
+                              "style": {}
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "readOnly": false,
+                          "slider": {
+                            "handleColor": "",
+                            "labels": {
+                              "interval": 20,
+                              "show": false
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "railColor": "",
+                            "step": 1,
+                            "style": {
+                              "classes": ""
+                            },
+                            "trackColor": ""
+                          },
+                          "style": {
+                            "classes": ""
+                          },
+                          "tabIndex": 0,
+                          "tel": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text-area": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "spellCheck": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrap": "soft"
+                          },
+                          "time-picker": {
+                            "defaultToNow": false,
+                            "format": "LT",
+                            "locale": "en",
+                            "maxTime": null,
+                            "minTime": null,
+                            "showSpinners": true,
+                            "style": {
+                              "classes": ""
+                            }
+                          },
+                          "toggle": {
+                            "align": "center",
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "type": "checkbox",
+                          "url": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "visible": true
+                        }
+                      ]
+                    },
+                    {
+                      "enabled": true,
+                      "enabledWhen": {},
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": false,
+                      "visibleWhen": {
+                        "id": "toggle",
+                        "value": true
+                      },
+                      "widgets": [
+                        {
+                          "checkbox": {
+                            "align": "center",
+                            "checkedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box",
+                              "style": {}
+                            },
+                            "indeterminateIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/indeterminate_check_box",
+                              "style": {}
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "triState": false,
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "uncheckedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/check_box_outline_blank",
+                              "style": {}
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "ll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "date-time-picker": {
+                            "defaultToNow": false,
+                            "dismissOnSelect": true,
+                            "displayType": "input",
+                            "format": "lll",
+                            "locale": "en",
+                            "maxDate": null,
+                            "minDate": null,
+                            "modalStyle": {
+                              "classes": ""
+                            },
+                            "placeholder": "Select date",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "dropdown": {
+                            "maxMenuHeight": 350,
+                            "minMenuHeight": 150,
+                            "multiSelect": false,
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [],
+                            "placeholder": {
+                              "color": "",
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {
+                                  "height": "16px",
+                                  "width": "16px"
+                                }
+                              },
+                              "text": "Select..."
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textAlign": "left",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrapMultiSelectValues": true
+                          },
+                          "email": {
+                            "autoComplete": "off",
+                            "multiple": false,
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "enabled": true,
+                          "id": "attendance",
+                          "info": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Total Training Attendance",
+                            "tooltip": {
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "location": "above",
+                              "maxWidth": 360,
+                              "pixelOffset": {
+                                "x": 0,
+                                "y": 0
+                              },
+                              "style": {
+                                "classes": ""
+                              },
+                              "tail": true
+                            },
+                            "type": "caption"
+                          },
+                          "label": {
+                            "style": {
+                              "classes": ""
+                            },
+                            "text": "Attendance"
+                          },
+                          "layout": "column",
+                          "number": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "max": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "min": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                },
+                                "step": {
+                                  "enabled": false,
+                                  "value": "any"
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "password": {
+                            "autoComplete": "",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "radio": {
+                            "align": "center",
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": "value"
+                              }
+                            ],
+                            "selectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_checked",
+                              "style": {}
+                            },
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "unselectedIcon": {
+                              "color": {
+                                "disabled": "",
+                                "enabled": ""
+                              },
+                              "path": "material/radio_button_unchecked",
+                              "style": {}
+                            },
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "readOnly": false,
+                          "slider": {
+                            "handleColor": "",
+                            "labels": {
+                              "interval": 20,
+                              "show": false
+                            },
+                            "max": 100,
+                            "min": 0,
+                            "railColor": "",
+                            "step": 1,
+                            "style": {
+                              "classes": ""
+                            },
+                            "trackColor": ""
+                          },
+                          "style": {
+                            "classes": ""
+                          },
+                          "tabIndex": 0,
+                          "tel": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text": {
+                            "autoComplete": "off",
+                            "placeholder": "# of attendees",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "text-area": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "spellCheck": true,
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            },
+                            "wrap": "soft"
+                          },
+                          "time-picker": {
+                            "defaultToNow": false,
+                            "format": "LT",
+                            "locale": "en",
+                            "maxTime": null,
+                            "minTime": null,
+                            "showSpinners": true,
+                            "style": {
+                              "classes": ""
+                            }
+                          },
+                          "toggle": {
+                            "align": "center",
+                            "color": {
+                              "selected": "",
+                              "unselected": ""
+                            },
+                            "justify": "start",
+                            "layout": "row",
+                            "optionStyle": {
+                              "classes": ""
+                            },
+                            "options": [
+                              {
+                                "text": "text",
+                                "value": ""
+                              }
+                            ],
+                            "style": {
+                              "classes": ""
+                            },
+                            "textPosition": "right",
+                            "type": "boolean",
+                            "validation": {
+                              "constraints": {
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "type": "text",
+                          "url": {
+                            "autoComplete": "off",
+                            "placeholder": "",
+                            "style": {
+                              "classes": ""
+                            },
+                            "validation": {
+                              "constraints": {
+                                "maxLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "minLength": {
+                                  "enabled": false,
+                                  "value": null
+                                },
+                                "pattern": {
+                                  "enabled": false,
+                                  "value": ""
+                                },
+                                "required": {
+                                  "enabled": false
+                                }
+                              },
+                              "icon": {
+                                "color": "",
+                                "path": "",
+                                "style": {}
+                              },
+                              "message": {},
+                              "style": {
+                                "classes": ""
+                              }
+                            }
+                          },
+                          "visible": true
+                        }
+                      ]
                     }
                   ],
                   "justify": "start",
@@ -2963,6 +4134,8 @@
           "validation": {
             "isInvalid": true,
             "status": {
+              "Trainings": "valid",
+              "attendance": "valid",
               "email": "valueMissing",
               "name": "valid",
               "radio": "valid",

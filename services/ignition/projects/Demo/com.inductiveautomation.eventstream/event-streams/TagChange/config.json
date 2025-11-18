@@ -1,0 +1,77 @@
+{
+  "enabled": true,
+  "source": {
+    "type": "ignition.tagEvent",
+    "config": {
+      "paths": [
+        "[default]Test"
+      ],
+      "changeTypes": [
+        "VALUE",
+        "QUALITY",
+        "TIMESTAMP"
+      ],
+      "skipInitialValues": false
+    }
+  },
+  "sourceEncoder": {
+    "type": "ignition.jsonObject",
+    "properties": {
+      "encoding": "UTF-8"
+    }
+  },
+  "handlers": [
+    {
+      "enabled": true,
+      "type": "com.inductiveautomation.sqlbridge.datasource",
+      "config": {
+        "mode": "INSERT",
+        "bypassStoreForward": false,
+        "datasourceName": "postgres",
+        "tableName": "hello_world",
+        "autoCreateTable": true,
+        "timestampColumnEnabled": true,
+        "timestampColumnName": "timestamp",
+        "columnMappings": [
+          {
+            "name": "tag_value",
+            "type": "Int8",
+            "value": {
+              "data": "{event.data.value}",
+              "type": "EXPRESSION"
+            }
+          }
+        ],
+        "whereClauses": []
+      },
+      "failureStrategy": {
+        "type": "ABORT",
+        "retryPolicy": null
+      }
+    }
+  ],
+  "batch": {
+    "debounceMs": 100,
+    "maxWaitMs": 1000,
+    "maxQueueSize": 0,
+    "overflow": "DROP_OLDEST"
+  },
+  "filter": {
+    "enabled": true,
+    "userCode": "\tLOGGER \u003d system.util.getLogger(\"EventStreamDemo\")\n\tif event.data.value \u003d\u003d 10:\n\t\tLOGGER.info(\"Skipped tag change event stream\")\n\t\treturn False\n\treturn True"
+  },
+  "transform": {
+    "enabled": false,
+    "userCode": "\treturn event.data"
+  },
+  "transformEncoder": {
+    "type": "ignition.jsonObject",
+    "properties": {
+      "encoding": "UTF-8"
+    }
+  },
+  "onError": {
+    "enabled": false,
+    "userCode": ""
+  }
+}

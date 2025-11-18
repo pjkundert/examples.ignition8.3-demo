@@ -1,0 +1,64 @@
+{
+  "enabled": true,
+  "source": {
+    "type": "com.inductiveautomation.webdev.http",
+    "config": {
+      "requireHttps": false,
+      "requireAuth": false,
+      "userSource": "",
+      "requiredRoles": "",
+      "maxRetryAttempts": 0
+    }
+  },
+  "sourceEncoder": {
+    "type": "ignition.string",
+    "properties": {
+      "encoding": "UTF-8"
+    }
+  },
+  "handlers": [
+    {
+      "enabled": true,
+      "type": "ignition.logger",
+      "config": {
+        "name": {
+          "data": "\"EventStreamDemo\"",
+          "type": "EXPRESSION"
+        },
+        "logLevel": "INFO",
+        "message": {
+          "data": "\"The logger for the demo fired, data: \" + {event.data}",
+          "type": "EXPRESSION"
+        }
+      },
+      "failureStrategy": {
+        "type": "ABORT",
+        "retryPolicy": null
+      }
+    }
+  ],
+  "batch": {
+    "debounceMs": 100,
+    "maxWaitMs": 1000,
+    "maxQueueSize": 0,
+    "overflow": "DROP_OLDEST"
+  },
+  "filter": {
+    "enabled": true,
+    "userCode": "#\tsystem.util.getLogger(\"EventStreamDemo\").info(\"EventStreamFilter ran\")\n\tif event.data \u003d\u003d \"Unwanted\":\n\t\treturn False\n\treturn True"
+  },
+  "transform": {
+    "enabled": false,
+    "userCode": "\treturn event.data"
+  },
+  "transformEncoder": {
+    "type": "ignition.jsonObject",
+    "properties": {
+      "encoding": "UTF-8"
+    }
+  },
+  "onError": {
+    "enabled": false,
+    "userCode": ""
+  }
+}
