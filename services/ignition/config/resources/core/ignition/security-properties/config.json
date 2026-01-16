@@ -2,21 +2,8 @@
   "accessPermissions": {
     "securityLevels": [
       {
-        "children": [
-          {
-            "children": [],
-            "name": "Access"
-          },
-          {
-            "children": [],
-            "name": "Read"
-          },
-          {
-            "children": [],
-            "name": "Write"
-          }
-        ],
-        "name": "API Tokens"
+        "children": [],
+        "name": "API"
       }
     ],
     "type": "AnyOf"
@@ -24,7 +11,17 @@
   "allowDesignerSSO": false,
   "allowUserAdmin": false,
   "createProjectPermissions": {
-    "securityLevels": [],
+    "securityLevels": [
+      {
+        "children": [],
+        "description": "Represents a user who has been authenticated by the system.",
+        "name": "Authenticated"
+      },
+      {
+        "children": [],
+        "name": "API"
+      }
+    ],
     "type": "AllOf"
   },
   "designerAuthStrategy": "CLASSIC",
@@ -71,21 +68,8 @@
         "name": "Authenticated"
       },
       {
-        "children": [
-          {
-            "children": [],
-            "name": "Access"
-          },
-          {
-            "children": [],
-            "name": "Read"
-          },
-          {
-            "children": [],
-            "name": "Write"
-          }
-        ],
-        "name": "API Tokens"
+        "children": [],
+        "name": "API"
       }
     ],
     "type": "AnyOf"
@@ -113,21 +97,8 @@
         "name": "Authenticated"
       },
       {
-        "children": [
-          {
-            "children": [],
-            "name": "Access"
-          },
-          {
-            "children": [],
-            "name": "Read"
-          },
-          {
-            "children": [],
-            "name": "Write"
-          }
-        ],
-        "name": "API Tokens"
+        "children": [],
+        "name": "API"
       }
     ],
     "type": "AnyOf"

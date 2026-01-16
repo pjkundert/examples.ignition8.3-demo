@@ -1,6 +1,6 @@
-# Ignition 8.3 + PostgreSQL Template
+# Ignition 8.3 Showcase & Testing Ground
 
-A Docker Compose template for quickly setting up an Ignition 8.3 gateway with PostgreSQL database and optional pgAdmin for development.
+A showcase and testing environment for Ignition 8.3 features and custom third-party modules. This project demonstrates various 8.3 capabilities and serves as a development playground for exploring new features and custom module integration.
 
 ## Quick Start
 
@@ -20,11 +20,12 @@ A Docker Compose template for quickly setting up an Ignition 8.3 gateway with Po
 
 ## What's Included
 
-- **Ignition 8.3.0-rc1** with Standard Edition
+- **Ignition 8.3** gateway for feature exploration
 - **PostgreSQL** database with Liquibase migrations
 - **pgAdmin** for database management
 - **Traefik** integration for local development
-- **Gateway Utilities** project (via git submodule)
+- **Demo Project** showcasing 8.3 features
+- **Custom Third-Party Modules** for extended functionality testing
 
 ### Pre-enabled Modules
 
@@ -34,6 +35,7 @@ A Docker Compose template for quickly setting up an Ignition 8.3 gateway with Po
 - PostgreSQL Driver
 - Web Development
 - OPC UA
+- Custom modules (see `services/third-party-modules/`)
 
 ## Services
 
@@ -74,6 +76,14 @@ The template includes Liquibase for database version control:
 - Docker and Docker Compose
 - Traefik proxy (for subdomain access) or use localhost ports
 
+## Purpose
+
+This environment is designed for:
+- **Exploring Ignition 8.3 features** - Test and demonstrate new capabilities
+- **Custom module development** - Load and test third-party modules
+- **Feature experimentation** - Safe environment for trying new approaches
+- **Demo scenarios** - Showcase Ignition capabilities and integrations
+
 ## Local Development
 
 The gateway is configured with:
@@ -81,22 +91,25 @@ The gateway is configured with:
 - EULA automatically accepted
 - A local development deployment mode enabled (`-Dignition.config.mode=local-dev`)
 - Commissioning skipped
+- Custom module loading from `services/third-party-modules/`
 
 ## File Structure
 
 ```
 ├── services/
 │   ├── ignition/           # Gateway configuration and projects
+│   │   └── projects/Demo/  # Demo project with 8.3 examples
 │   ├── postgres/           # Database setup and migrations
-│   └── pgadmin/           # pgAdmin configuration
-├── shared/
-│   └── gateway-utilities/  # Shared utilities project (submodule)
+│   ├── pgadmin/           # pgAdmin configuration
+│   └── third-party-modules/ # Custom modules for testing
+├── scripts/               # Utility scripts
 └── docker-compose.yaml    # Main service definitions
 ```
 
 ## Customization
 
-- Modify `docker-compose.yaml` to add/remove modules
-- Update database credentials in the compose file
-- Add your projects to `services/ignition/projects/`
-- Configure gateway settings in `services/ignition/config/`
+- **Add custom modules:** Place `.modl` files in `services/third-party-modules/`
+- **Test new features:** Modify the Demo project in `services/ignition/projects/Demo/`
+- **Configure gateway:** Update settings in `services/ignition/config/`
+- **Modify modules:** Edit `docker-compose.yaml` to add/remove built-in modules
+- **Database changes:** Update credentials in the compose file or add migrations to `services/postgres/liquibase/`

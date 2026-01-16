@@ -1,14 +1,16 @@
 ---
 services:
   gateway:
-    image: inductiveautomation/ignition:8.3.1
+    image: inductiveautomation/ignition:latest
     volumes:
       - ./services/ignition/config:/usr/local/bin/ignition/data/config 
       - ./services/ignition/projects:/usr/local/bin/ignition/data/projects
+      - ./services/third-party-modules/Project-Scan-Endpoint.modl:/usr/local/bin/ignition/user-lib/modules/Project-Scan-Endpoint.modl
+      - ./services/third-party-modules/Perspective-TailwindCSS.modl:/usr/local/bin/ignition/user-lib/modules/Perspective-TailwindCSS.modl
       - ./shared/gateway-utilities/projects/gateway-utilities:/usr/local/bin/ignition/data/projects/gateway-utilities
 
-      # Temporary volume to skip commissioning
-      - ./services/ignition/commissioning.json:/usr/local/bin/ignition/data/commissioning.json
+      # Read only mounting commissioning.json to prevent write back
+      - ./services/ignition/commissioning.json:/usr/local/bin/ignition/data/commissioning.json:ro
     environment:
       IGNITION_EDITION: "standard"
       DISABLE_QUICKSTART: "true"
@@ -20,7 +22,11 @@ services:
         com.inductiveautomation.jdbc.postgresql,
         com.inductiveautomation.webdev,
         com.inductiveautomation.opcua,
-        com.inductiveautomation.sqlbridge
+        com.inductiveautomation.sqlbridge,
+        project-scan-endpoint,
+        perspective-tailwindcss
+      ACCEPT_MODULE_LICENSES: project-scan-endpoint,perspective-tailwindcss
+      ACCEPT_MODULE_CERTS: project-scan-endpoint,perspective-tailwindcss
     command: >
       -n ignition83
       --

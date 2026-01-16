@@ -18,21 +18,8 @@
       "name": "Authenticated"
     },
     {
-      "children": [
-        {
-          "children": [],
-          "name": "Access"
-        },
-        {
-          "children": [],
-          "name": "Read"
-        },
-        {
-          "children": [],
-          "name": "Write"
-        }
-      ],
-      "name": "API Tokens"
+      "children": [],
+      "name": "API"
     }
   ]
 }

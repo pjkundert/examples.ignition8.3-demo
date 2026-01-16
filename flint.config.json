@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "0.2",
+  "project-paths": [
+    "services/ignition/projects"
+  ],
+  "gateways": {
+    "ignition83": {
+      "modules": {
+        "project-scan-endpoint": {
+          "enabled": true
+        }
+      },
+      "id": "ignition83",
+      "environments": {
+        "local": {
+          "host": "ignition83.localtest.me",
+          "port": 443,
+          "ssl": true,
+          "modules": {
+            "project-scan-endpoint": {
+              "apiTokenFilePath": ".env",
+              "forceUpdateDesigner": false
+            }
+          }
+        }
+      },
+      "defaultEnvironment": "local",
+      "enabled": true,
+      "projects": [
+        "Demo",
+        "gateway-utilities"
+      ],
+      "ignitionVersion": "8.3"
+    }
+  },
+  "settings": {
+    "showInheritedResources": true,
+    "groupResourcesByType": true,
+    "autoRefreshProjects": true,
+    "searchHistoryLimit": 50
+  }
+}
