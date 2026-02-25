@@ -11,12 +11,16 @@ A showcase and testing environment for Ignition 8.3 features and custom third-pa
 
 2. **Start the services:**
    ```bash
+   docker network create proxy
+   docker compose -f services/traefik/docker-compose.yaml up -d
    docker compose up -d
    ```
 
-3. **Access the gateway:**
-   - Ignition Gateway: https://ignition83.localtest.me (requires Traefik proxy)
-   - Or direct access: http://localhost:8088
+3. **Access the services:**
+   - Ignition Gateway: http://ignition83.localtest.me
+   - pgAdmin: http://postgres-pgadmin.localtest.me
+
+> **Without Traefik:** If you prefer direct port access instead, skip the Traefik compose step and uncomment the `ports` sections in `docker-compose.yaml` for the services you need (e.g., `8088:8088` for Ignition, `5432:5432` for PostgreSQL).
 
 ## What's Included
 
@@ -39,12 +43,13 @@ A showcase and testing environment for Ignition 8.3 features and custom third-pa
 
 ## Services
 
-| Service | Description | Access |
-|---------|-------------|---------|
-| gateway | Ignition 8.3 Gateway | https://ignition83.localtest.me |
-| database | PostgreSQL 16 | localhost:5432 |
-| pgadmin | Database administration | https://postgres-pgadmin.localtest.me |
-| liquibase | Database migrations | Runs once on startup |
+| Service   | Description             | Access                                            |
+|-----------|-------------------------|---------------------------------------------------|
+| gateway   | Ignition 8.3 Gateway    | http://ignition83.localtest.me                    |
+| database  | PostgreSQL              | Internal, or `localhost:5432` if port uncommented |
+| pgadmin   | Database administration | http://postgres-pgadmin.localtest.me              |
+| traefik   | Reverse proxy           | `services/traefik/docker-compose.yaml`            |
+| liquibase | Database migrations     | Runs once on startup                              |
 
 ## Database Setup
 
@@ -74,7 +79,6 @@ The template includes Liquibase for database version control:
 ## Prerequisites
 
 - Docker and Docker Compose
-- Traefik proxy (for subdomain access) or use localhost ports
 
 ## Purpose
 
@@ -101,6 +105,7 @@ The gateway is configured with:
 │   │   └── projects/Demo/  # Demo project with 8.3 examples
 │   ├── postgres/           # Database setup and migrations
 │   ├── pgadmin/           # pgAdmin configuration
+│   ├── traefik/           # Traefik reverse proxy
 │   └── third-party-modules/ # Custom modules for testing
 ├── scripts/               # Utility scripts
 └── docker-compose.yaml    # Main service definitions
