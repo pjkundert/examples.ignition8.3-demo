@@ -24,8 +24,8 @@ node_modules
 tailwind/tailwind-compiled.css
 tailwind/node_modules
 
-# Temp test files
-temp/
+# Temp test files; nope - also ignores "temp" Identity Providers!
+#temp/
 
 # Local overrides
 .local/

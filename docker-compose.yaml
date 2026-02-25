@@ -27,6 +27,9 @@ services:
         perspective-tailwindcss
       ACCEPT_MODULE_LICENSES: project-scan-endpoint,perspective-tailwindcss
       ACCEPT_MODULE_CERTS: project-scan-endpoint,perspective-tailwindcss
+    # Uncomment to access Ignition directly without Traefik
+    # ports:
+    #   - "8088:8088"
     command: >
       -n ignition83
       --
@@ -34,7 +37,8 @@ services:
 
     labels:
       traefik.enable: "true"
-      traefik.hostname: "ignition83"
+      traefik.http.routers.gateway.rule: "Host(`ignition83.localtest.me`)"
+      traefik.http.services.gateway.loadbalancer.server.port: "8088"
     networks:
       - default
       - proxy
@@ -42,6 +46,9 @@ services:
   database:
     image: postgres
     hostname: postgres
+    # Uncomment to access PostgreSQL directly from the host
+    # ports:
+    #   - "5432:5432"
     volumes:
       - ./services/postgres/init-sql:/docker-entrypoint-initdb.d
     environment:
@@ -76,7 +83,8 @@ services:
       - ./services/pgadmin/servers.json:/pgadmin4/servers.json
     labels:
       traefik.enable: "true"
-      traefik.hostname: "postgres-pgadmin"
+      traefik.http.routers.pgadmin.rule: "Host(`postgres-pgadmin.localtest.me`)"
+      traefik.http.services.pgadmin.loadbalancer.server.port: "80"
     networks:
       - default
       - proxy
