@@ -9,10 +9,11 @@
   ],
   "attributes": {
     "lastModification": {
-      "actor": "system-init",
-      "timestamp": "2025-09-11T16:24:31Z"
+      "actor": "admin",
+      "timestamp": "2026-02-25T22:41:15Z"
     },
     "uuid": "651c165d-a796-44b2-92e8-7d5156c555da",
-    "lastModificationSignature": "7567e3c6f21942937f08fbea57708e833a770bd31caaa2c5fd4db2b55080daa3"
+    "lastModificationSignature": "490e45caaf86e30e4498fe4937c30b79c7a5c353cc64b07129db1c87da88ad9c",
+    "enabled": true
   }
 }
